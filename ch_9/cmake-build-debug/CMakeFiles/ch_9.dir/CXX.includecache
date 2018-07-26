@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/coast/Desktop/C++/ch_9/main.cpp
+iostream
+-
+namesp.h
+/Users/coast/Desktop/C++/ch_9/namesp.h
+
+/Users/coast/Desktop/C++/ch_9/namesp.cpp
+iostream
+-
+namesp.h
+/Users/coast/Desktop/C++/ch_9/namesp.h
+
+/Users/coast/Desktop/C++/ch_9/namesp.h
+string
+-
+

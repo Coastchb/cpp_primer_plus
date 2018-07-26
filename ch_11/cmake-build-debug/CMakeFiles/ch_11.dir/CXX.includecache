@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/coast/Desktop/C++/ch_11/main.cpp
+mytime0.h
+/Users/coast/Desktop/C++/ch_11/mytime0.h
+stonewt.h
+/Users/coast/Desktop/C++/ch_11/stonewt.h
+
+/Users/coast/Desktop/C++/ch_11/mytime0.cpp
+mytime0.h
+/Users/coast/Desktop/C++/ch_11/mytime0.h
+
+/Users/coast/Desktop/C++/ch_11/mytime0.h
+iostream
+-
+
+/Users/coast/Desktop/C++/ch_11/stonewt.cpp
+iostream
+-
+stonewt.h
+/Users/coast/Desktop/C++/ch_11/stonewt.h
+
+/Users/coast/Desktop/C++/ch_11/stonewt.h
+

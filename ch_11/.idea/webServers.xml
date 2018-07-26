@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="65be1a13-9170-461e-b1d9-f6e9dd2c1c2c" name="tts" url="http://tts">
+        <fileTransfer host="tts" port="22" rootFolder="/export/maryland/hbcao/TTS" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

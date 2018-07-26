@@ -1,0 +1,3 @@
+/Users/coast/Desktop/C++/basis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/coast/Desktop/C++/basis/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/coast/Desktop/C++/basis/cmake-build-debug/CMakeFiles/basis.dir
