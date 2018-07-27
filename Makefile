@@ -3,6 +3,7 @@ myFirst.o: myFirst.cpp
 	@echo 'the command only to execute'
 	echo 'the command to show and execute'
 
+
 .PHONY: clean
 
 clean:
