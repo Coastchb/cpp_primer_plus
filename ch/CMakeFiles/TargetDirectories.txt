@@ -1,3 +1,0 @@
-/Users/coast/Desktop/C++/ch_5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/coast/Desktop/C++/ch_5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/coast/Desktop/C++/ch_5/cmake-build-debug/CMakeFiles/ch_5.dir

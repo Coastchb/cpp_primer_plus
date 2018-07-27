@@ -1,3 +1,0 @@
-auto name: BWM BENZ
-year: 2024
-price:934.34
