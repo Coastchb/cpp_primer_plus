@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/coast/Desktop/C++/ch_5/h2.cpp
+h2.h
+/Users/coast/Desktop/C++/ch_5/h2.h
+
+/Users/coast/Desktop/C++/ch_5/h2.h
+string
+-
+iostream
+-
+
+/Users/coast/Desktop/C++/ch_5/main.cpp
+iostream
+-
+string
+-
+vector
+-
+cstring
+-
+fstream
+-
+h2.h
+/Users/coast/Desktop/C++/ch_5/h2.h
+
