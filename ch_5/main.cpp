@@ -31,7 +31,7 @@ int main() {
 void change_str(const string & origin, const string & pad, string & ret){
   ret = pad + origin + pad;
 }
-void refer_fun(int & a)
+void refer_fun(const int & a)
 {
   cout << "in function, a=" << a << endl;
 }
