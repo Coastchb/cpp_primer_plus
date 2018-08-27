@@ -1,4 +1,4 @@
-cc_binary(
+cc_test(
     name = "hello_test",
     srcs = ["hello_test.cpp"],
     copts = ["-Iexternal/gtest/include"],
