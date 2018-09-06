@@ -1,4 +1,0 @@
-new_http_archive(
-    name = "gflag",
-    url = ""
-)
