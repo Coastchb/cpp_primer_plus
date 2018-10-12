@@ -10,10 +10,10 @@
 #include <fstream>
 #include <mutex>
 
-// preliminary example
+// important example: based on 3_thread.cc
 
 // multiple threads operate on global variable
-// but it will fail when it comes to string (very strange)
+
 
 void do_task(long l, std::string& a, std::mutex& m);
 
