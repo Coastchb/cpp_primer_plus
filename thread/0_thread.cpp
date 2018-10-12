@@ -1,57 +1,28 @@
-#include <iostream>
-#include <thread>
-#include <chrono>
-#include <fstream>
+#include <chrono>    // std::chrono::seconds
+#include <iostream>  // std::cout
+#include <thread>    // std::thread, std::this_thread::sleep_for
 
-using namespace std;
+// preliminary example
 
-void output1(int i)
-{
-  cout << i << endl;
+void thread_task(int n) {
+  std::this_thread::sleep_for(std::chrono::seconds(n));
+  std::cout << "hello thread "
+            << std::this_thread::get_id()
+            << " paused " << n << " seconds" << std::endl;
 }
 
-void output2(){
-  cout << "output2 started..." << endl;
-  this_thread::sleep_for(chrono::seconds(2));
-  cout << "output2 finished" << endl; // in detach mode, this will not be printed to console
-  ofstream fout("from_output2");
-  fout << "content outputed from output2 thread" << endl;
-
-
-}
-
-class Task{
-public:
-    Task(int i){i_=i;}
-    void operator()(int i){
-      cout << "output from Task class: " << i << " " << i_ << endl;
-    }
-
-private:
-    int i_;
-};
-
-int main()
+int main(int argc, const char *argv[])
 {
-
-  int N = 10;
-  thread threads[N];
-  for (int i = 0; i < N; i++)
-  {
-    threads[i] = thread(output1, i);
-    //cout << t.get_id() << endl;
+  std::thread threads[5];
+  std::cout << "Spawning 5 threads...\n";
+  for (int i = 0; i < 5; i++) {
+    threads[i] = std::thread(thread_task, i + 1);
   }
-
-  for (int i = 0; i < N; i++)
-  {
-    threads[i].join();
+  std::cout << "Done spawning threads! Now wait for them to join\n";
+  for (auto& t: threads) {
+    t.join();
   }
-  thread t(output2);
-  t.join();
+  std::cout << "All threads joined.\n";
 
-  thread t1(Task(20), 2);
-  t1.join();
-  cout << "Finally return to main!" << endl;
-  //getchar();
-  return 0;
+  return EXIT_SUCCESS;
 }

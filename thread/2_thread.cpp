@@ -7,6 +7,10 @@
 #include <math.h>
 #include <vector>
 
+// important example
+
+// multiple threads v.s one thread
+
 void do_task(long l);
 
 class Threads{

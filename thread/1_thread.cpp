@@ -5,7 +5,9 @@
 #include <thread>
 using namespace std;
 
-// Mark 1: must use "ref(counter)" because f1 accept int reference;
+// preliminary example
+
+// Mark 1: must use "ref(counter)" because f1 accept int reference, even though counter is declared as int reference;
 //        if "f1(int counter)", then "thread t1(f1, counter)" is ok
 
 void f1(int &counter);
