@@ -25,6 +25,9 @@ int main()
 
 
 
+// compile:
+// g++ -ltcmalloc -lprofiler -o 0 0.cpp
 
+// run:
 // pprof --text ./0 test.prof >test.txt
 // pprof --pdf ./0 test.prof >test.pdf
