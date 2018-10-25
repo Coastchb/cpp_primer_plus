@@ -5,6 +5,8 @@
 #include <gperftools/profiler.h>
 #include <iostream>
 #include <string>
+#include <stdlib.h>
+
 using namespace std;
 
 void f(int n )
@@ -35,9 +37,14 @@ int main(int argc, char *argv[])
 }
 
 
+// install gperftool and
+// link $gperftool_dir/src/gperftool/ to /usr/local/include and
+// link $gperftool_dir/.libs/libprofiler.a and libtcmalloc.a to /usr/local/lib and
+// link $gperftool_dir/.libs/libprofiler.so* and libtcmalloc.so* to /usr/lib and
+// link $gperftool_dir/src/pprof to /usr/bin
 
 // compile:
-// g++ -ltcmalloc -lprofiler -o 0 0.cpp
+// g++ -o 0 0.cpp -ltcmalloc -lprofiler
 
 // run:
 // ./0 1024
