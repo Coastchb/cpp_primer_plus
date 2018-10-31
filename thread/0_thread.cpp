@@ -26,3 +26,6 @@ int main(int argc, const char *argv[])
 
   return EXIT_SUCCESS;
 }
+
+// compile:
+// g++ -o 0_thread 0_thread.cpp --std=c++11
