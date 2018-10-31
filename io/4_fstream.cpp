@@ -9,7 +9,7 @@
 using namespace std;
 
 // mark 1: pay attention to it.  after reading, remember to clear the eof flag, otherwise the file cannot be write or read
-//          the file even though the pointer position has been reset
+//          even though the pointer position has been reset
 const int LEN_NAME = 20;
 inline void eatline(){ while(cin.get() != '\n'){}}
 
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
   cin >> pl.g;
 
   fio.seekp(target_pos);
-  fio.write((char*)&pl,planet_size);
+  fio.write((char*)&pl,planet_size) << flush;
 
   cout << "sizeof(pl)=" << planet_size << endl;
   cout << "just after writing, tellg()=" << fio.tellg() << ",tellp()=" << fio.tellp() << endl;
