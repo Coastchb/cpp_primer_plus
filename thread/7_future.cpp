@@ -21,7 +21,7 @@ string do_task(int i, int& k, vector<int>& j){
   stringstream ss;
   ss << i;
   k+=1; //
-  j.push_back(1);
+  //j.push_back(1);
   std::this_thread::sleep_for(std::chrono::seconds(1));
   return ss.str();
 }
@@ -32,8 +32,10 @@ int main(){
   vector<future<string>> futures;
   int N = 100, k=0;
   vector<int> v;
-  for(int j=0; j<N; j++){
-    futures.push_back(async(std::launch::async,do_task,j, ref(k), ref(v)));
+  {
+    for(int j=0; j<N; j++){
+      futures.push_back(async(std::launch::async,do_task,j, ref(k), ref(v)));
+    }
   }
 
   for(auto& f : futures){

@@ -14,9 +14,11 @@ using namespace std;
 
 // import example
 // the function returns multiple values
-tuple<int,string> do_task(int i){
+tuple<int,string> do_task(int i, vector<int>& vv){
   stringstream ss;
   ss << i;
+  cout << "vv at: " << &vv << endl;
+  vv.push_back(1);
   std::this_thread::sleep_for(std::chrono::seconds(1));
   return make_tuple(i, ss.str());
 }
@@ -26,10 +28,16 @@ int main(){
 
   vector<future<tuple<int,string>>> futures;
   int N = 50;
-  for(int j=0; j<=N; j++){
-    futures.push_back(async(std::launch::async,do_task,j));
+  vector<int> v;
+  cout << "v at: " << &v << endl;
+  for(int j=0; j<N; j++){
+    futures.push_back(async(std::launch::async,do_task,j,ref(v)));
   }
-
+/*
+  for(auto& s : v){
+    cout << s << endl;
+  }
+*/
   for(auto& f : futures){
     tuple<int,string> ret = f.get();
     cout << get<0>(ret) << " " << get<1>(ret) << endl;
