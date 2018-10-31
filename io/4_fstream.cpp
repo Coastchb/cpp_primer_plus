@@ -8,6 +8,8 @@
 #include <cstdlib>
 using namespace std;
 
+// mark 1: pay attention to it.  after reading, remember to clear the eof flag, otherwise the file cannot be write or read
+//          the file even though the pointer position has been reset
 const int LEN_NAME = 20;
 inline void eatline(){ while(cin.get() != '\n'){}}
 
@@ -34,10 +36,14 @@ int main(int argc, char* argv[]){
     while (fio.read((char*)&pl, planet_size)) {
       cout << "pl.name:" << pl.name << "\tpl.population:" << pl.population << "\tpl.g:" << pl.g << endl;
     }
+
+    // mark 1
     if (fio.eof()){
       fio.clear();
     }
   }
+
+  cout << "after reading the entire file , tellg()=" << fio.tellg() << ",tellp()=" << fio.tellp() << endl;
 
   long p;
   cout << "the id of object to change:";
@@ -49,6 +55,15 @@ int main(int argc, char* argv[]){
   if (fio.read((char*)&pl, planet_size)){
     cout << "content of the target object:\n";
     cout << "pl.name:" << pl.name << "\tpl.population:" << pl.population << "\tpl.g:" << pl.g << endl;
+  } else {
+    cerr << "error while reading the target object\n";
+    exit(EXIT_FAILURE);
+  }
+
+  cout << "eof flag after reading the target object:" << fio.eof() << endl;
+  // mark 1
+  if (fio.eof()){
+    fio.clear();
   }
 
   cout << "enter the new name:";
