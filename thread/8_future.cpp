@@ -17,8 +17,8 @@ using namespace std;
 tuple<int,string> do_task(int i, vector<int>& vv){
   stringstream ss;
   ss << i;
-  cout << "vv at: " << &vv << endl;
-  vv.push_back(1);
+  //cout << "vv at: " << &vv << endl;
+  vv[i] = i;
   std::this_thread::sleep_for(std::chrono::seconds(1));
   return make_tuple(i, ss.str());
 }
@@ -28,16 +28,16 @@ int main(){
 
   vector<future<tuple<int,string>>> futures;
   int N = 50;
-  vector<int> v;
+  vector<int> v(N);
   cout << "v at: " << &v << endl;
   for(int j=0; j<N; j++){
     futures.push_back(async(std::launch::async,do_task,j,ref(v)));
   }
-/*
+
   for(auto& s : v){
     cout << s << endl;
   }
-*/
+
   for(auto& f : futures){
     tuple<int,string> ret = f.get();
     cout << get<0>(ret) << " " << get<1>(ret) << endl;
