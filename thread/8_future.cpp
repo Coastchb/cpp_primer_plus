@@ -14,11 +14,14 @@ using namespace std;
 
 // import example
 // the function returns multiple values
-tuple<int,string> do_task(int i, vector<int>& vv){
+// mark 1: pay attention to the inside mechanism!
+
+tuple<int,string> do_task(int i, vector<string>* vv){
   stringstream ss;
   ss << i;
+  std::this_thread::sleep_for(std::chrono::seconds(5));
   //cout << "vv at: " << &vv << endl;
-  vv[i] = i;
+  vv->at(i) = "vv" + ss.str();
   std::this_thread::sleep_for(std::chrono::seconds(1));
   return make_tuple(i, ss.str());
 }
@@ -28,19 +31,27 @@ int main(){
 
   vector<future<tuple<int,string>>> futures;
   int N = 50;
-  vector<int> v(N);
+  vector<string> v(N);
   cout << "v at: " << &v << endl;
   for(int j=0; j<N; j++){
-    futures.push_back(async(std::launch::async,do_task,j,ref(v)));
+    futures.push_back(async(do_task,j,&v));
   }
 
+  // mark 1
+  // this for loop will run earlier than the multi-threads
   for(auto& s : v){
     cout << s << endl;
   }
 
+  // this will wait for the multi-threads ends and get their returns
   for(auto& f : futures){
     tuple<int,string> ret = f.get();
     cout << get<0>(ret) << " " << get<1>(ret) << endl;
+  }
+
+  // this will get what we expect
+  for(auto& s : v){
+    cout << s << endl;
   }
 
   time_t ed = time(NULL);
