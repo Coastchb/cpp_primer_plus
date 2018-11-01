@@ -14,7 +14,7 @@ using namespace std;
 //          >> will automatically eat the begining whitespace and newline util read characters and ends util meet whitespace or newline; (see 0_cout.cpp)
 //        the whitespace or newline character will be left by them(not read or throw by them), so pay attention to
 //        eat the extra character, otherwise error will occur while next reading (except for >> which will eat the beginning whitespace and newline character)
-// what if the characters are read by >> or get() from binary file? And the numeric values?
+// what if the characters are read by >> or get() from binary file? And the numeric values? (but how to receive the read content?)
 
 const int LEN_NAME = 20;
 inline void eatline(){ while(cin.get() != '\n'){}}
