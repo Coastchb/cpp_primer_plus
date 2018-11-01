@@ -61,6 +61,7 @@ int main(int argc, char* argv[]){
   }
 
   cout << "eof flag after reading the target object:" << fio.eof() << endl;
+  cout << "after reading the target object , tellg()=" << fio.tellg() << ",tellp()=" << fio.tellp() << endl;
   // mark 1
   if (fio.eof()){
     fio.clear();
