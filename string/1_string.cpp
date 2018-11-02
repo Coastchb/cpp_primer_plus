@@ -3,6 +3,9 @@
  */
 #include <string>
 #include <iostream>
+#include <stdlib.h>
+#include <string.h>
+#include <cstdlib>
 using namespace std;
 
 // if a character pointer only stores the address, then how do cout know a character pointer
@@ -31,4 +34,7 @@ int main(int argc, char* argv[]) {
   cout << cp3 << endl;
   cout << *cp3 << endl;
   cout << (void*)cp3 << endl;
+
+  cout << static_cast<char>(68) << endl;
+  cout << (68 == 'D') << endl;
 }
