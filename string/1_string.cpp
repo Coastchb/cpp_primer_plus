@@ -11,7 +11,8 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
   // deprecated: conversion from string literal to 'char *' is deprecated
-  char * cp1 = "This is string one.";
+  // but can assign a string literal to a const char pointer
+  const char * cp1 = "This is string one.";
   cout << cp1 << endl;
 
   // legal
