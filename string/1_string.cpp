@@ -14,6 +14,8 @@ int main(int argc, char* argv[]) {
   // but can assign a string literal to a const char pointer
   const char * cp1 = "This is string one.";
   cout << cp1 << endl;
+  // cp1[1] = 'H'; // read-only variable is not assignable
+  // cout << cp1 << endl;
 
   // legal
   string str = "This is string two.";
