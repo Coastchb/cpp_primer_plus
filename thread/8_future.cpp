@@ -19,10 +19,11 @@ using namespace std;
 tuple<int,string> do_task(int i, vector<string>* vv){
   stringstream ss;
   ss << i;
-  std::this_thread::sleep_for(std::chrono::seconds(5));
-  //cout << "vv at: " << &vv << endl;
-  vv->at(i) = "vv" + ss.str();
   std::this_thread::sleep_for(std::chrono::seconds(1));
+  //cout << "vv at: " << &vv << endl;
+  //vv->at(i) = "vv" + ss.str();
+  vv->push_back("vv"+ss.str());
+  //std::this_thread::sleep_for(std::chrono::seconds(1));
   return make_tuple(i, ss.str());
 }
 
@@ -31,7 +32,7 @@ int main(){
 
   vector<future<tuple<int,string>>> futures;
   int N = 50;
-  vector<string> v(N);
+  vector<string> v; //(N);
   cout << "v at: " << &v << endl;
   for(int j=0; j<N; j++){
     futures.push_back(async(do_task,j,&v));
@@ -39,6 +40,7 @@ int main(){
 
   // mark 1
   // this for loop will run earlier than the multi-threads
+
   for(auto& s : v){
     cout << s << endl;
   }
@@ -53,6 +55,7 @@ int main(){
   for(auto& s : v){
     cout << s << endl;
   }
+  cout << v.size() << endl;
 
   time_t ed = time(NULL);
   cout << "Finished, consumed: " << (ed - st) << "s" << endl;
