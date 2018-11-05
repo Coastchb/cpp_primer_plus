@@ -15,14 +15,19 @@ using namespace std;
 // import example
 // the function returns multiple values
 // mark 1: pay attention to the inside mechanism!
+// mark 2: pass the first parameter with value instead of reference or pointer, otherwise error will occur.
+//         make sure that the parameter passed to the called function is not changed before the called function stops to use it,
+//         otherwise the function will call a null pointer or get an incorrect value.
 
+
+// mark 2
 tuple<int,string> do_task(int i, vector<string>* vv){
   stringstream ss;
   ss << i;
   std::this_thread::sleep_for(std::chrono::seconds(1));
   //cout << "vv at: " << &vv << endl;
-  //vv->at(i) = "vv" + ss.str();
-  vv->push_back("vv"+ss.str());
+  vv->at(i) = "vv" + ss.str();
+  //vv->push_back("vv"+ss.str());
   //std::this_thread::sleep_for(std::chrono::seconds(1));
   return make_tuple(i, ss.str());
 }
@@ -32,10 +37,11 @@ int main(){
 
   vector<future<tuple<int,string>>> futures;
   int N = 50;
-  vector<string> v; //(N);
+  vector<string> v(N);
   cout << "v at: " << &v << endl;
   for(int j=0; j<N; j++){
-    futures.push_back(async(do_task,j,&v));
+    // mark 2
+    futures.push_back(async(std::launch::async,do_task, j ,&v));
   }
 
   // mark 1
