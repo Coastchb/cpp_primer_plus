@@ -70,4 +70,9 @@ thread/6_future
 thread/7_future
 thread/8_future
 time/0_time
+lib_file/2_dependence_test
+lib_file/3_so_a_test
+lib_file/libdependence/add.o
+lib_file/libdependence/level_0.o
+lib_file/libdependence/level_1.o
 .gitignore
