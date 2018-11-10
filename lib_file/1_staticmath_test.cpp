@@ -21,13 +21,13 @@ int main(int argc, char* argv[]) {
 }
 
 // for static library:
-// (1) compile library: g++ -c StaticMath.cpp
+// (1) compile library: g++ -c -o StaticMath.o StaticMath.cpp
 // (2) packet the library: ar -crv libstaticmath.a StaticMath.o  (optional: mv libstaticmath.a to libmath/lib)
 // (3) compile test file: g++ -o 1_staticmath_test 1_staticmath_test.cpp -L libmath/lib -l staticmath
 // (4) run: ./1_staticmath_test
 
 // for dynamic library:
 // (1) compile and packet the library: g++ -fPIC -shared -o so/libdynamicmath.so StaticMath.cpp
-// (1) compile test file: g++ -o 1_dynamicmath_test_dynmic 1_staticmath_test.cpp -L libmath/so -l staticmath
-// (2) make sure libdynamicmath.so can be found: e.g link libdynamicmath.so to /usr/lib or add libmath/so to $LD_LIBRARY_PATH
-// (3) run: ./1_dynamicmath_test
+// (2) compile test file: g++ -o 1_dynamicmath_test_dynmic 1_staticmath_test.cpp -L libmath/so -l staticmath
+// (3) make sure libdynamicmath.so can be found: e.g link libdynamicmath.so to /usr/lib or add libmath/so to $LD_LIBRARY_PATH
+// (4) run: ./1_dynamicmath_test

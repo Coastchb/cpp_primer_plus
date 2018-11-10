@@ -26,3 +26,13 @@ namespace/bazel-testlogs
 thread/0_thread
 thread/1_thread
 thread/2_thread
+gperftools/0
+gperftools/test.pdf
+gperftools/test.txt
+gperftools/test.prof
+lib_file/1_dynamicmath_test
+lib_file/1_staticmath_test
+lib_file/2_dependence_test
+lib_file/libdependence/add.o
+lib_file/libdependence/level_0.o
+lib_file/libdependence/level_1.o
