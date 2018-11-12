@@ -25,6 +25,7 @@ void refer_fun(const int & a);
 void change_str(const string & origin, const string & pad, string & ret);
 
 int main() {
+  print_func("ab");
   refer_fun(1);
 }
 
