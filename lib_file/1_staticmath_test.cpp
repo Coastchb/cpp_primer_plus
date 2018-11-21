@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 // (4) run: ./1_staticmath_test
 
 // for dynamic library:
-// (1) compile and packet the library: g++ -fPIC -shared -o so/libdynamicmath.so StaticMath.cpp
+// (1) compile and packet the library: g++ -fPIC -shared -o so/libdynamicmath.so StaticMath.cpp  (of course, it can be done by firstly compile to .o and then get .so)
 // (2) compile test file: g++ -o 1_dynamicmath_test_dynmic 1_staticmath_test.cpp -L libmath/so -l staticmath
 // (3) make sure libdynamicmath.so can be found: e.g link libdynamicmath.so to /usr/lib or add libmath/so to $LD_LIBRARY_PATH
 // (4) run: ./1_dynamicmath_test

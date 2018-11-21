@@ -76,3 +76,9 @@ lib_file/libdependence/add.o
 lib_file/libdependence/level_0.o
 lib_file/libdependence/level_1.o
 .gitignore
+
+lib_file/libadd/libtmp.so
+lib_file/libadd/tmp.o
+lib_file/libmath/libTmp.so
+lib_file/libmath/libtmp.so
+lib_file/libmath/tmp.o

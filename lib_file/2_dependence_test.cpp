@@ -8,6 +8,7 @@ using namespace std;
 
 int main() {
     cout << add_five(1, 2, 3, 4, 5) << endl;
+    cout << add_three(1,2,3) << endl;
 }
 
 
