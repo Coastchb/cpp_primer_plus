@@ -1,0 +1,26 @@
+syntax = "proto2";
+
+package tutorial;
+
+message Person {
+    required string name = 1;
+    required int32 id = 2;
+    optional string email = 3;
+
+    enum PhoneType{
+        MOBILE = 1;
+        HOME = 2;
+        WORK = 3;
+    }
+
+    message PhoneNumber {
+        required string num = 1;
+        optional PhoneType type = 2 [default = HOME];
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+    repeated Person people = 1;
+}
