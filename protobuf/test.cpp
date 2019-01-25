@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
       return -1;
     }
   }
-  google::protobuf::ShutdownProtobufLibrary();
+  //google::protobuf::ShutdownProtobufLibrary();
 
   cout << "ok" << endl;
   return 0;
