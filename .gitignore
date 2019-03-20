@@ -82,3 +82,14 @@ lib_file/libadd/tmp.o
 lib_file/libmath/libTmp.so
 lib_file/libmath/libtmp.so
 lib_file/libmath/tmp.o
+.idea/markdown-navigator.xml
+.idea/markdown-navigator/
+C/fwrite
+C/tmp.txt
+char/0_char
+char_string/4_string
+protobuf/proto/addressbook.pb.cc
+protobuf/proto/addressbook.pb.h
+tools/
+vector_array/0_vector2array
+wget-log
