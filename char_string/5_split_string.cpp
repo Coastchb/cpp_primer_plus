@@ -4,11 +4,40 @@
 #include <string>
 #include <iostream>
 #include <vector>
+//#include <boost/lexical_cast.hpp>
 using namespace std;
 
 // Caution: 请注意string::find 和 string::find_first_of 的区别！！！
 
 string delimiters[] = {"。", "！", "？"};
+
+// TODO: what if T is string and int?
+// boost::lexical_cast<>
+template<typename T>
+bool split_text_to_vector(const string& full,
+                          const string& delimeter,
+                          bool omit_empty_strings,
+                          vector<T>* out) {
+  out->clear();
+
+  cout << T;
+  size_t start = 0, end = full.size();
+  size_t delim_len = delimeter.size();
+  size_t found = full.find(delimeter, start);
+  while(start < end) {
+    if(found == string::npos) {
+      if(start != end)
+        out->push_back(full.substr(start, found - start));
+      break;
+    }
+    if(!omit_empty_strings || (found != start && (start != end)))
+      out->push_back(full.substr(start, found - start));
+    start = found + delim_len;
+    found = full.find(delimeter, start);
+  }
+
+  return true;
+}
 
 void SplitStringToVector(const string& full,
                          bool omit_empty_strings,
@@ -51,4 +80,22 @@ int main() {
   for(auto s: ret){
     cout << s << endl;
   }
+
+  string str1 = "a,b,cd,efg";
+  ret.clear();
+  split_text_to_vector(str1,",", true, &ret);
+  cout << "split str1:" << endl;
+  for(auto s: ret){
+    cout << s << endl;
+  }
+
+
+  /*
+  string str2 = "1,2,33,4";
+  vector<int> ret2;
+  split_text_to_vector<int>(str2, ",", true, &ret2);
+  for(auto s: ret2){
+    cout << s << endl;
+  }*/
+
 }
