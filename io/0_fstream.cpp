@@ -17,7 +17,7 @@ int main(){
   fout.close();
 
   string line;
-  ifstream fin(filename);
+  fstream fin(filename, ios_base::in);
   fin >> line;
   cout << "get: " << line << endl;
   fin >> line;
@@ -27,6 +27,9 @@ int main(){
   while(fin.get(ch)){
     cout << "get char:" << ch << endl;
   }
+
+  size_t len = fin.tellp();
+  cout << "fin.tellp()=" << len << ";sizeof(fin.tellp())=" << sizeof(len) << endl;
   fin.close();
 
   return 0;

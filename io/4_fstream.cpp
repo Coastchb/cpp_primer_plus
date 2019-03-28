@@ -67,6 +67,9 @@ int main(int argc, char* argv[]){
     fio.clear();
   }
 
+  size_t len = fio.tellp();
+  cout << len << " sizeof(fio.tellp()):" << sizeof(len) << endl;
+
   cout << "enter the new name:";
   eatline();
   cin.get(pl.name, LEN_NAME);
