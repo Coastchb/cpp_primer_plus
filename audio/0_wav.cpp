@@ -8,6 +8,7 @@
 using namespace std;
 
 // add header for pcm file
+// to refine: add header directly, without reading pcm samples one by one
 
 template <typename Word>
 bool write_word(std::ostream& outs, Word value, unsigned size = sizeof(Word))
@@ -25,7 +26,7 @@ bool add_header(const string& pcm_file, const string& wav_file) {
   write_word( fw,      1, 2 );  // PCM - integer samples
   write_word( fw,      1, 2 );  // two channels (stereo file)
   write_word( fw,  16000, 4 );  // samples per second (Hz)
-  write_word( fw, 64000, 4 );  // (Sample Rate * BitsPerSample * Channels) / 8
+  write_word( fw,  64000, 4 );  // (Sample Rate * BitsPerSample * Channels) / 8
   write_word( fw,      4, 2 );  // data block size (size of two integer samples, one for each channel, in bytes)
   write_word( fw,     16, 2 );  // number of bits per sample (use a multiple of 8)
 
