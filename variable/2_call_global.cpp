@@ -2,9 +2,12 @@
  * Created by coast on 2019/4/17
  */
 
-#include "1_global.h"
-
+//#include "1_global.h"
+#include <string>
+#include <iostream>
+using namespace std;
 int main() {
+  extern string global_str1;
   cout << global_str1 << endl;
-  cout << global_str2 << endl;
+  //cout << global_str2 << endl;
 }
