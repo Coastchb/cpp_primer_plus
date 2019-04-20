@@ -11,7 +11,7 @@
 #include <time.h>
 using namespace std;
 
-// import example
+// important example
 // the function returns one value
 // Caution:
 // in multithread, lock must be used if the non-thread-safe operation (e.g assign value to the same variable) will be done by several threads;

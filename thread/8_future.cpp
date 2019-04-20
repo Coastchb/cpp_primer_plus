@@ -12,7 +12,7 @@
 #include <tuple>
 using namespace std;
 
-// import example
+// important example
 // the function returns multiple values
 // mark 1: pay attention to the inside mechanism!
 // mark 2: pass the first parameter with value instead of reference or pointer, otherwise error will occur.
