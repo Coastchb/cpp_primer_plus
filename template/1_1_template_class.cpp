@@ -1,36 +1,7 @@
 /**
- * Created by coast on 2019/4/20
+ * Created by coast on 2019/4/22
  */
-#include <iostream>
-#include <string>
-using namespace std;
-
-#ifndef _1_TEMPLATE_CLASS_
-#define _1_TEMPLATE_CLASS_
-
-template <typename T, int max_size>
-class Stack {
-private:
-    int size_; // element number;
-    T* list_;
-    int capacity_;
-
-public:
-    Stack();
-    bool push(T const&);
-    bool pop(T&);
-    bool is_empty() const {
-      return size_ == 0;
-    };
-    bool is_full() const {
-      return size_ == capacity_;
-    };
-    int get_size() const {
-      return size_;
-    }
-    ~Stack();
-
-};
+#include "1_1_template_class.h"
 
 template <typename T, int max_size>
 Stack<T, max_size>::Stack() {
@@ -65,6 +36,3 @@ bool Stack<T, max_size>::pop(T& e) {
   e = list_[size_];
   return true;
 }
-
-
-#endif

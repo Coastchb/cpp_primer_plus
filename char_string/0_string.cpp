@@ -35,5 +35,12 @@ int main(int argc, char* argv[]){
   vector<string> vv(1);
   fun4(&vv);
   cout << vv[0];
+
+  string str = "ab";
+  //cout << ("a" + "b") << endl;
+  cout << (str + "c") << endl;
+  cout << ("c" + str) << endl;
+  //cout << ("c" + str + "d" << endl;
+  cout << (str + "c" + "d") << endl;
   return 0;
 }

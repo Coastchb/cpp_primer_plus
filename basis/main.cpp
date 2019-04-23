@@ -79,6 +79,8 @@ int main(int argc, const char * argv[]) {
     //char* a = "ab";
     //cout << a << endl;
     //print(a);
+
+    get_len();
 }
 int strip(string raw_str, string& ret_str)
 {

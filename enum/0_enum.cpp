@@ -19,7 +19,7 @@ int main() {
   day1 = dayEnum(4);
   cout << day1 << endl;
 
-  if (day1 == 5 ) {
+  if (day1 == 4 ) {
     cout << "Happy Firday!\n";
   } else {
     cout << "Not Friday yet!\n";
@@ -38,5 +38,9 @@ int main() {
   dayEnum day5 = dayEnum(Monday + Tuesday);
   //day5++;
   day5 = dayEnum(day5 + 1);
+
+  dayEnum day6 = dayEnum(7);
+  dayEnum day7 = day6;
+  cout << "dayEnum(7): " << day6 << endl;
 
 }
