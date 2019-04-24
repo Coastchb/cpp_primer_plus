@@ -13,6 +13,7 @@ int main(int argc, char* argv[]) {
 
   cout << (b > a) << endl;
   cout << "sizeof(int):" << sizeof(int) << endl;
+  cout << "sizeof(long):" << sizeof(long) << endl;
   cout << "sizeof(size_t): " << sizeof(size_t) << endl;
 
   size_t t = 3;

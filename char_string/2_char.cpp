@@ -6,6 +6,8 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
   string str = "NBA player-科比.";
+  cout << str.size() << endl;
+  cout << str.substr(11,3) << endl; // Chinese character is 3-bytes long
   cout << "'" << str[0] << "' is lower:" << static_cast<bool>(islower(str[0])) << endl;
   cout << "'" << str[4] << "' is lower:" << boolalpha << islower(str[4]) << endl;
   cout << "'" << str[11] << "' is uppper:" << boolalpha << isupper(str[11]) << endl;
