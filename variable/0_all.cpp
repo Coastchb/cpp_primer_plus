@@ -18,10 +18,12 @@ int main() {
   b=1;
   const int& ref_a = a; // must initialize
   int c;
+  string s;
 
   cout << global_a << endl;
   cout << a << endl;
   cout << b << endl;
   cout << c << endl;
+  cout << s << endl;
 
 }
