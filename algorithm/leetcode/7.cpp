@@ -2,7 +2,7 @@
  * Created by coast on 2019/4/20
  */
 #include <iostream>
-
+#include <climits>
 using namespace std;
 
 class Solution {
