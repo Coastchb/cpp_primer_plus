@@ -6,7 +6,8 @@
 #include <string>
 using namespace std;
 
-//　形参如果是引用，那就不能将右值（比如字面值，函数返回值）传递给它。
+// 引用不能指向右值（比如字面值，函数返回值）！
+//　也因此，形参如果是引用，那就不能将右值传递给它。
 
 
 void print(string& s, int& a) {
@@ -23,12 +24,18 @@ int fun1(){
 }
 
 int main () {
-    string a = "a";
-    int b = 1;
-    print(a, b);
-    // print(a,1);
-    // print("a",b);
-    //print(a,fun1());
+    string str = "a";
+    int a = 1;
+
+    //int& b = 1;
+    //int& b = fun1();
+    //string& str1 = "a";
+
+
+    print(str, a);
+    // print(str,1);
+    // print("a",a);
+    //print(str,fun1());
 
 
     print2(fun1());
