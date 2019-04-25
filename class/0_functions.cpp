@@ -8,14 +8,19 @@ using namespace std;
 // 纯虚函数：必须在子类中重写（实现），父类中只提供函数声明；可以实现运行时多态
 // 虚函数：  可以在子类中重写，父类中提供函数的默认实现；可以实现运行时多态
 // 普通函数：可以在子类中有个相同的函数，而且名称相同并没有什么意义，因为不可以实现运行时多态 (函数隐藏）
-// 被声明为父类的指针或者引用实际指向子类对象，并且调用父类中的虚函数，才会有多态。
+// 被声明为父类的指针或者引用实际指向子类对象，并且调用在子类中重写了的父类中的虚函数，才会有多态。
 // 把父类析构函数设为虚函数。
 // 不论什么情况下（构造函数虚实与否，等等），构造子类对象都会先调用父类构造函数然后调用子类构造函数。
 
 class A
 {
+private:
+    int a_;
+    int b_;
 public:
     A() {
+      a_ = 1;
+      b_ = 2;
       cout << "A()\n";
     }
     virtual void out1()=0;  ///由子类实现
@@ -28,13 +33,23 @@ public:
     {
       cout<<"A(out3)"<<endl;
     }
+    virtual void out5() {
+      cout << "A(out5):" << a_ << endl;
+    }
+    void out6()
+    {
+      cout << "A(out6)\n";
+    }
 };
 
 class B:public A
 {
+private:
+    int a_;
 public:
-
-    B() {
+    B(){
+      a_ = 2;
+      //b_ = 3;
       cout << "B()\n";
     }
 
@@ -67,6 +82,8 @@ int main()
   ab->out2();
   ab->out3();
   //ab->out4();   // out4() 在父类中不存在，不能调用
+  ab->out5();
+  ab->out6();
   delete ab;
 
   cout << "====== A & ======" << endl;
@@ -76,6 +93,8 @@ int main()
   abb.out2();
   abb.out3();
   //abb.out4();   // out4() 在父类中不存在，不能调用
+  abb.out5();
+  abb.out6();
 
   cout << "====== B * ======" << endl;
   B *bb=new B;
@@ -83,6 +102,8 @@ int main()
   bb->out2();
   bb->out3();
   bb->out4();
+  bb->out5();
+  bb->out6();
 
   delete bb;
 

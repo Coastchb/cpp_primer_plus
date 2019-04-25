@@ -6,11 +6,10 @@
 #include <string>
 using namespace std;
 
-// 引用不能指向右值（比如字面值，函数返回值）！
-//　也因此，形参如果是引用，那就不能将右值传递给它。
+// 临时变量（比如字面值，函数返回值）只能用来初始化常引用，因为这些临时变量是常量。
 
 
-void print(string& s, int& a) {
+void print(const string& s, const int& a) {
     cout << s << "\t" << a << endl;
 }
 
@@ -27,15 +26,15 @@ int main () {
     string str = "a";
     int a = 1;
 
-    //int& b = 1;
-    //int& b = fun1();
-    //string& str1 = "a";
+    const int& b = 1;           // 必须为const，否则： non-const lvalue reference to type 'int' cannot bind to a temporary of type 'int'
+    const int& b2 = fun1();
+    const string& str1 = "a";
 
 
     print(str, a);
-    // print(str,1);
-    // print("a",a);
-    //print(str,fun1());
+    print(str,1);
+    print("a",a);
+    print(str,fun1());
 
 
     print2(fun1());
