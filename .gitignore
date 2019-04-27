@@ -93,3 +93,5 @@ protobuf/proto/addressbook.pb.h
 tools/
 vector_array/0_vector2array
 wget-log
+
+bin/
