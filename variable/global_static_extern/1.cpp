@@ -4,6 +4,7 @@
 #include "0.h"
 
 const string const_global_str1 = "hello";
+//string str2 = "World";
 
 void fun1() {
   global_str[7] = 'w';
@@ -16,3 +17,9 @@ void fun1() {
 
   cout << "const_static_global_str\t at:" << &const_static_global_str << "; content:" << const_static_global_str << endl;
 }
+
+class myClass {
+    myClass(){};
+    ~myClass(){};
+
+};

@@ -14,3 +14,7 @@ void fun2() {
 
   cout << "const_static_global_str\t at:" << &const_static_global_str << "; content:" << const_static_global_str << endl;
 }
+
+class another_class {
+    friend class myClass;
+};

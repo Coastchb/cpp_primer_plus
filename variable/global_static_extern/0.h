@@ -21,6 +21,8 @@ using namespace std;
 
 extern string global_str;           // field: project
 //string global_str1 = "Hello";     // illegal: cannot define global variable (neither const nor static) in header
+//string str2;                      // illegal
+class myClass;
 
 //extern static string wrong_str1;  // illegal: extern and static cannot be used simultaneously
 static string static_global_str = "Hello, Coast"; // field: file
@@ -32,6 +34,7 @@ static const string const_static_global_str = "Hello,Kitty";  // field: file
 
 void fun1();
 void fun2();
+
 
 
 // illegal
