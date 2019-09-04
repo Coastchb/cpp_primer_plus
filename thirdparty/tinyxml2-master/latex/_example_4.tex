@@ -1,0 +1,27 @@
+
+
+There are fundamentally 2 ways of writing a key-\/value pair into an X\+ML file. (Something that\textquotesingle{}s always annoyed me about X\+ML.) Either by using attributes, or by writing the key name into an element and the value into the text node wrapped by the element. Both approaches are illustrated in this example, which shows two ways to encode the value \char`\"{}2\char`\"{} into the key \char`\"{}v\char`\"{}\+:
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+Tiny\+X\+M\+L-\/2 has accessors for both approaches.
+
+When using an attribute, you navigate to the X\+M\+L\+Element with that attribute and use the Query\+Int\+Attribute() group of methods. (Also Query\+Float\+Attribute(), etc.)
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+When using the text approach, you need to navigate down one more step to the X\+M\+L\+Element that contains the text. Note the extra First\+Child\+Element( \char`\"{}v\char`\"{} ) in the code below. The value of the text can then be safely queried with the Query\+Int\+Text() group of methods. (Also Query\+Float\+Text(), etc.)
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,58 @@
+ In this example, we navigate a simple X\+ML file, and read some interesting text. Note that this example doesn\textquotesingle{}t use error checking; working code should check for null pointers when walking an X\+ML tree, or use X\+M\+L\+Handle.
+
+(The X\+ML is an excerpt from \char`\"{}dream.\+xml\char`\"{}).
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+The structure of the X\+ML file is\+:
+
+
+\begin{DoxyItemize}
+\item (declaration) 
+\item (dtd stuff) 
+\item Element \char`\"{}\+P\+L\+A\+Y\char`\"{} 
+\begin{DoxyItemize}
+\item Element \char`\"{}\+T\+I\+T\+L\+E\char`\"{} 
+\begin{DoxyItemize}
+\item Text \char`\"{}\+A Midsummer Night\textquotesingle{}s Dream\char`\"{} 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+For this example, we want to print out the title of the play. The text of the title (what we want) is child of the \char`\"{}\+T\+I\+T\+L\+E\char`\"{} element which is a child of the \char`\"{}\+P\+L\+A\+Y\char`\"{} element.
+
+We want to skip the declaration and dtd, so the method First\+Child\+Element() is a good choice. The First\+Child\+Element() of the Document is the \char`\"{}\+P\+L\+A\+Y\char`\"{} Element, the First\+Child\+Element() of the \char`\"{}\+P\+L\+A\+Y\char`\"{} Element is the \char`\"{}\+T\+I\+T\+L\+E\char`\"{} Element.
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+We can then use the convenience function Get\+Text() to get the title of the play.
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+Text is just another Node in the X\+ML D\+OM. And in fact you should be a little cautious with it, as text nodes can contain elements.
+
+\begin{DoxyVerb}Consider: A Midsummer Night's <b>Dream</b>
+\end{DoxyVerb}
+
+
+It is more correct to actually query the Text Node if in doubt\+:
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+
+
+Noting that here we use First\+Child() since we are looking for X\+M\+L\+Text, not an element, and To\+Text() is a cast from a Node to a X\+M\+L\+Text. 

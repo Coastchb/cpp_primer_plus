@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 // capacity, size and insert()
@@ -25,5 +26,32 @@ int main(){
 
     vec1.insert(vec1.end(), vec2.begin(), vec2.end());
     print_vector(vec1);
+
+    vector<string> str_v = {"a","b"};
+    for (auto v: str_v) {
+        cout << v << endl;
+    }
+
+    vector<vector<string>> str_v_v;
+    str_v_v.push_back({"a","b"});
+
+
+    vector<vector<int>> v_v_i(3,vector<int>(2,0));
+    for(auto v1 : v_v_i)
+        for(auto v2 : v1)
+            cout << v2 << endl;
+
+    cout << v_v_i.size() << "\t" << v_v_i[0].size() << endl;
+
+    v_v_i.erase(v_v_i.begin() , v_v_i.begin() + 1);
+
+    for(auto v1 : v_v_i)
+        for(auto v2 : v1)
+            cout << v2 << endl;
+
+    vector<int> v_int(2,10);
+    v_int.insert(v_int.end(), 2,11);
+    for (auto v : v_int)
+        cout << v << "\t";
 
 }

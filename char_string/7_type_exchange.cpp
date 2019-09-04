@@ -17,6 +17,10 @@ int main(){
     ss >> str_value;
     cout << "value is: " << str_value << endl;
 
+    stringstream s1("345");
+    int int_value;
+    s1 >> int_value;
+    cout << "int value is:" << int_value << endl;
     //cout << SHRT_MAX << endl;
     return 0;
 }

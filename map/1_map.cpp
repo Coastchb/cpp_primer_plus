@@ -23,5 +23,13 @@ int main(int argc, char* argv[]) {
 
   print_map(m);
 
+  cout << m.begin()->first << endl;
+  cout << m.begin()->second << endl;
+  string str = "a";
+  str += "/";
+  int a = 1;
+  str += to_string(a);
+  str += ".wav";
+  cout << str << endl;
   return 0;
 }

@@ -34,5 +34,13 @@ int main() {
     compute(a, 10, 7);
     compute(a, 10, 9);
 
+    // operation
+    a = 10;
+    float b = float(a) / 3;
+    cout << b << endl;
+
+    cout << int(b) << endl;
+
+    cout << min(1,2) << endl;
     return 0;
 }
