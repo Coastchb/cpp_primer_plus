@@ -8,6 +8,9 @@
 #include <algorithm>
 #include <fstream>
 #include <vector>
+#include <math.h>
+//#include "Audacity.h"
+//#include "effects/Normalize.h"
 using namespace std;
 
 bool parse_pcm(const string& file_path, vector<int16_t>& pcm_data_vec) {
@@ -42,76 +45,46 @@ bool write_pcm(vector<int16_t>& pcm, const string& filename) {
 }
 
 bool norm_pcm(vector<int16_t> & in_pcm, int norm_val, vector<int16_t>& out_pcm) {
-
-    // find the max value in pcm
-    int16_t max = in_pcm[0];
-    for (auto iter = in_pcm.begin() + 1; iter != in_pcm.end(); iter++) {
-        //max = *iter > max ? *iter : max;
-    }
-
-    auto iter = in_pcm.begin();
-    int count = 0;
-    while(true) {
-        if(*(iter+count) != 0) {
-            cout << count << endl;
-            cout << *iter << endl;
-            break;
-        }
-        count++;
-    }
-
-    cout << in_pcm.size() << endl;
-    if (max == 0) {
-        cout << "ERROR: max value = 0";
-        return false;
-    }
-    for (auto iter = in_pcm.begin(); iter != in_pcm.end(); iter++) {
-        //cout << (*iter) << "\t" << norm_val << "\t" << max << endl;
-        out_pcm.insert(out_pcm.end(), (*iter) * norm_val / max);
+    for (auto v : in_pcm) {
+        out_pcm.insert(out_pcm.end(), v * pow(10, float(norm_val) / 20));
     }
     return true;
 }
+
 // mix audio and noise
-void mix_pcm_vec(vector<int16_t>& data_pcm, vector<int16_t> & noise_pcm) {
-    vector<int16_t> out_pcm;
-    for(unsigned long i=0; i<min<unsigned long>(data_pcm.size(), noise_pcm.size()); i++)
+bool mix_pcm(vector<int16_t>& pcm_1, vector<int16_t> & pcm_2, vector<int16_t> & out_pcm) {
+    for(unsigned long i=0; i<min<unsigned long>(pcm_1.size(), pcm_2.size()); i++)
     {
-        out_pcm.push_back(std::max<int16_t>(-32767, std::min<int16_t>((int16_t)(1*data_pcm[i] + 1*noise_pcm[i]), 32767)));
+        out_pcm.insert(out_pcm.end(), std::max<int16_t>(-32767, std::min<int16_t>((int16_t)(1*pcm_1[i] + 1*pcm_2[i]), 32767)));
     }
-    data_pcm = out_pcm;
+    return true;
 }
 
 
-//参数为数据，采样个数
-//返回值为分贝
-#define VOLUMEMAX   32767
-int SimpleCalculate_DB(vector<int16_t>& pcmData)
-{
-    int16_t ret = 0;
-    if (pcmData.size() > 0){
-        int16_t sum = 0;
-        for(auto v : pcmData) {
-            sum += abs(v);
-        }
-
-        ret = sum * 500 / (pcmData.size() * VOLUMEMAX);
-        if (ret >= 100){
-            ret = 100;
-        }
+int16_t get_max(vector<int16_t>& in) {
+    int16_t max = -32767; //int16_t.MAX;
+    for(auto v:in) {
+        max = v > max ? v : max;
     }
-    return ret;
+
+    return max;
 }
 
 int main() {
-    vector<int16_t> in_pcm, out_pcm;
-    parse_pcm("data/10000_sox_norm_-3.pcm", in_pcm);
+    vector<int16_t> in_pcm, normed_pcm, noise_pcm, mixed_pcm;
+    parse_pcm("data/10000.pcm", in_pcm);
 
-    cout << SimpleCalculate_DB(in_pcm) << endl;
-    /*
-    if (!norm_pcm(in_pcm, -3, out_pcm)) {
+    if (!norm_pcm(in_pcm, -6, normed_pcm)) {
         cout << "ERROR: failed to norm pcm\n";
-    }*/
-    //write_pcm(out_pcm, "data/10000_norm_-3.pcm");
+    }
+    write_pcm(normed_pcm, "data/10000_norm_-6.pcm");
+
+    parse_pcm("data/noise.pcm", noise_pcm);
+    if (!mix_pcm(in_pcm, noise_pcm, mixed_pcm)) {
+        cout << "ERROR: failed to mix pcm\n";
+    }
+    write_pcm(mixed_pcm, "data/10000_noise.pcm");
+
 
     return 0;
 }

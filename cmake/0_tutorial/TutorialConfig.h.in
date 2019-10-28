@@ -1,0 +1,6 @@
+// the configured options and settings for Tutorial
+#define Tutorial_VERSION_MAJOR @Tutorial_version_major@
+#define Tutorial_VERSION_MINOR @Tutorail_version_minor@
+
+// the macro must be USE_MYMATH_OPTION, which is defined in CMakeLists.txt
+#cmakedefine USE_MYMATH_OPTION

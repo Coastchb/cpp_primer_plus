@@ -13,48 +13,49 @@
 #ifndef __AUDACITY_EFFECT_NORMALIZE__
 #define __AUDACITY_EFFECT_NORMALIZE__
 
-#include "../Experimental.h"
+//#include "../Experimental.h"
 
-#include "Effect.h"
-#include "Biquad.h"
+//#include "Effect.h"
+//#include "Biquad.h"
 
+/*
 class wxCheckBox;
 class wxStaticText;
 class wxTextCtrl;
 class ShuttleGui;
-
+*/
 #define NORMALIZE_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Normalize") }
 
-class EffectNormalize final : public Effect
+class EffectNormalize final //: public Effect
 {
 public:
-   EffectNormalize();
+   EffectNormalize(double);
    virtual ~EffectNormalize();
 
    // ComponentInterface implementation
 
-   ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
-   wxString ManualPage() override;
+   //ComponentInterfaceSymbol GetSymbol() override;
+   //wxString GetDescription() override;
+   //wxString ManualPage() override;
 
    // EffectDefinitionInterface implementation
 
-   EffectType GetType() override;
+   //EffectType GetType() override;
 
    // EffectClientInterface implementation
 
-   bool DefineParams( ShuttleParams & S ) override;
-   bool GetAutomationParameters(CommandParameters & parms) override;
-   bool SetAutomationParameters(CommandParameters & parms) override;
+   //bool DefineParams( ShuttleParams & S ) override;
+   //bool GetAutomationParameters(CommandParameters & parms) override;
+   //bool SetAutomationParameters(CommandParameters & parms) override;
 
    // Effect implementation
 
-   bool CheckWhetherSkipEffect() override;
-   bool Startup() override;
-   bool Process() override;
-   void PopulateOrExchange(ShuttleGui & S) override;
-   bool TransferDataToWindow() override;
-   bool TransferDataFromWindow() override;
+   //bool CheckWhetherSkipEffect() override;
+   //bool Startup() override;
+   bool Process();
+   //void PopulateOrExchange(ShuttleGui & S) override;
+   //bool TransferDataToWindow() override;
+   // TransferDataFromWindow() override;
 
 private:
    // EffectNormalize implementation
@@ -64,6 +65,7 @@ private:
       ANALYSE_DC, ANALYSE_LOUDNESS, ANALYSE_LOUDNESS_DC
    };
 
+   /*
    bool ProcessOne(
       WaveTrack * t, const wxString &msg, double& progress, float offset);
    bool AnalyseTrack(const WaveTrack * track, const wxString &msg,
@@ -82,9 +84,9 @@ private:
    void CalcEBUR128HSF(float fs);
 #endif
 
-   void OnUpdateUI(wxCommandEvent & evt);
+   //void OnUpdateUI(wxCommandEvent & evt);
    void UpdateUI();
-
+*/
 private:
    double mPeakLevel;
    bool   mGain;
@@ -103,8 +105,9 @@ private:
 #ifdef EXPERIMENTAL_R128_NORM
    double mSqSum;
 #endif
-   sampleCount    mCount;
+   //sampleCount    mCount;
 
+   /*
    wxCheckBox *mGainCheckBox;
    wxCheckBox *mDCCheckBox;
    wxTextCtrl *mLevelTextCtrl;
@@ -117,10 +120,11 @@ private:
    Biquad mR128HSF;
    Biquad mR128HPF;
 #endif
+    */
    bool mCreating;
 
 
-   DECLARE_EVENT_TABLE()
+   //DECLARE_EVENT_TABLE()
 };
 
 #endif

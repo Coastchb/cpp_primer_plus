@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/mathFunctions/MathFunctions.h
+math.h
+-
+iostream
+-
+
+/Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/mathFunctions/mysqrt.cpp
+MathFunctions.h
+/Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/mathFunctions/MathFunctions.h
+

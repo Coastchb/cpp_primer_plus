@@ -54,4 +54,10 @@ int main(){
     for (auto v : v_int)
         cout << v << "\t";
 
+    cout << "\nafter erasing\n";
+
+    v_int.erase(v_int.begin() + 2, v_int.end());
+	for (auto v : v_int)
+		cout << v << "\t";
+	cout << endl;
 }

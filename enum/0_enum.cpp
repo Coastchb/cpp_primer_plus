@@ -14,6 +14,13 @@ enum dayEnum {
     Sunday
 };
 
+void fun1 ( const dayEnum & day) {
+    if (day == -1) {
+        cout << "invalid day\n";
+        return;
+    }
+    cout << day << endl;
+}
 int main() {
   dayEnum day1;
   day1 = dayEnum(4);
@@ -42,5 +49,8 @@ int main() {
   dayEnum day6 = dayEnum(7);
   dayEnum day7 = day6;
   cout << "dayEnum(7): " << day6 << endl;
+
+  fun1(Monday);
+  //fun1(-1);
 
 }

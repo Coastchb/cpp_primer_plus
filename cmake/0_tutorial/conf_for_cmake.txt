@@ -1,0 +1,9 @@
+message("in 0_tutorial")
+message("${CMAKE_CURRENT_LIST_DIR}")
+
+add_custom_target(export
+                    COMMAND mkdir -p ${CMAKE_CURRENT_LIST_DIR}/include/
+                    COMMAND mkdir -p ${CMAKE_CURRENT_LIST_DIR}/lib/
+                    COMMAND cp --parents -r  ${to_export_headers} ${CMAKE_CURRENT_LIST_DIR}/include/
+                    COMMAND cp -r ${to_export_libs} ${CMAKE_CURRENT_LIST_DIR}/lib/
+                    )
