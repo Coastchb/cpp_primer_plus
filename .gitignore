@@ -95,3 +95,5 @@ vector_array/0_vector2array
 wget-log
 
 bin/
+.vscode/db/cpptips.db
+.vscode
