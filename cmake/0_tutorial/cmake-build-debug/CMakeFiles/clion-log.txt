@@ -1,16 +1,60 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial
-CMake Warning at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.14/Modules/Platform/Darwin-Initialize.cmake:131 (message):
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Warning at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.20/Modules/Platform/Darwin-Initialize.cmake:303 (message):
   Ignoring CMAKE_OSX_SYSROOT value:
 
    /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk
 
   because the directory does not exist.
 Call Stack (most recent call first):
-  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.14/Modules/CMakeSystemSpecificInitialize.cmake:21 (include)
+  /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.20/Modules/CMakeSystemSpecificInitialize.cmake:21 (include)
   CMakeLists.txt:2 (project)
 
 
-ON
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/cmake-build-debug
+-- The C compiler identification is AppleClang 13.0.0.13000029
+-- The CXX compiler identification is AppleClang 13.0.0.13000029
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - broken
+CMake Error at /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.20/Modules/CMakeTestCCompiler.cmake:66 (message):
+  The C compiler
+
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: /Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):/usr/bin/make -f Makefile cmTC_96a0d/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_96a0d.dir/build.make CMakeFiles/cmTC_96a0d.dir/build
+    Building C object CMakeFiles/cmTC_96a0d.dir/testCCompiler.c.o
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc    -MD -MT CMakeFiles/cmTC_96a0d.dir/testCCompiler.c.o -MF CMakeFiles/cmTC_96a0d.dir/testCCompiler.c.o.d -o CMakeFiles/cmTC_96a0d.dir/testCCompiler.c.o -c /Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+    Linking C executable cmTC_96a0d
+    /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96a0d.dir/link.txt --verbose=1
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_96a0d.dir/testCCompiler.c.o -o cmTC_96a0d 
+    ld: library not found for -lSystem
+    clang: error: linker command failed with exit code 1 (use -v to see invocation)
+    make[1]: *** [cmTC_96a0d] Error 1
+    make: *** [cmTC_96a0d/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/coastcao/Desktop/cpp_primer_plus/cmake/0_tutorial/cmake-build-debug/CMakeFiles/CMakeError.log".

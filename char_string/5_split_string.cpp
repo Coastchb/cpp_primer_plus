@@ -20,7 +20,6 @@ bool split_text_to_vector(const string& full,
                           vector<T>* out) {
   out->clear();
 
-  cout << T;
   size_t start = 0, end = full.size();
   size_t delim_len = delimeter.size();
   size_t found = full.find(delimeter, start);
@@ -71,6 +70,26 @@ void SplitStringToVector(const string& full,
   }
 }
 
+void split_string(const std::string& str, const std::string& sep, std::vector<std::string>& ret)
+{
+	ret.clear();
+
+	size_t start = 0, end = str.size();
+	size_t delim_len = sep.size();
+	size_t found = str.find(sep, start);
+	while(start < end) {
+		if(found == string::npos) {
+			if(start != end)
+				ret.push_back(str.substr(start, found - start));
+			break;
+		}
+		if((found != start && (start != end)))
+			ret.push_back(str.substr(start, found - start));
+		start = found + delim_len;
+		found = str.find(sep, start);
+	}
+}
+
 int main() {
   string text = "据中央气象局预计，今明两天北京市有中雨。请市民做好出行准备！带好雨具。有任何疑问吗？";
   vector<string> ret;
@@ -81,7 +100,7 @@ int main() {
     cout << s << endl;
   }
 
-  string str1 = "a,b,cd,efg";
+  string str1 = "a,b,cd,efg,h";
   ret.clear();
   split_text_to_vector(str1,",", true, &ret);
   cout << "split str1:" << endl;
@@ -90,12 +109,9 @@ int main() {
   }
 
 
-  /*
-  string str2 = "1,2,33,4";
-  vector<int> ret2;
-  split_text_to_vector<int>(str2, ",", true, &ret2);
-  for(auto s: ret2){
-    cout << s << endl;
-  }*/
+  split_string(str1, ",", ret);
+  for(auto s: ret){
+  	cout << s << endl;
+  }
 
 }
