@@ -97,3 +97,4 @@ wget-log
 bin/
 .vscode/db/cpptips.db
 .vscode
+thirdparty/
